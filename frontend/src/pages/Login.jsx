@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { loginUser } from "../services/auth";
-import { Link } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login() {
@@ -23,103 +22,105 @@ function Login() {
     try {
       const data = await loginUser(formData);
 
-      localStorage.setItem(
-        "token",
-        data.token
-      );
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify(data.user)
-      );
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       navigate("/dashboard");
     } catch (error) {
-      alert(
-        error.response?.data?.message ||
-          "Login Failed"
-      );
+      alert(error.response?.data?.message || "Login Failed");
     }
   };
 
   return (
-    <div className="container">
-      <div className="left-section">
-  <h1>Build a Greener Future 🌿</h1>
+    <div className="login-page">
+      <div className="container">
 
-  <p>
-    AI-powered carbon intelligence helping businesses measure,
-    analyze, and reduce their environmental impact.
-  </p>
+        {/* Left Section */}
+        <div className="left-section">
+          <h1>Build a Greener Future 🌿</h1>
 
-  <div className="stats">
-    <div>
-      <h2>50+</h2>
-      <span>Organizations</span>
-    </div>
+          <p>
+            AI-powered carbon intelligence helping organizations measure,
+            analyze and reduce their environmental impact with smart AI
+            insights.
+          </p>
 
-    <div>
-      <h2>10K+</h2>
-      <span>Users</span>
-    </div>
+          <div className="stats">
+            <div>
+              <h2>50+</h2>
+              <span>Organizations</span>
+            </div>
 
-    <div>
-      <h2>98%</h2>
-      <span>AI Accuracy</span>
-    </div>
-  </div>
-</div>
-      <div className="card">
-        <h1 style={{
-    fontSize: "48px",
-    textAlign: "center",
-    color: "#1b5e20",
-    marginBottom: "10px",
-    fontWeight: "800",
-    letterSpacing: "2px",}}>
-    CarbonIQ
-    </h1>
+            <div>
+              <h2>10K+</h2>
+              <span>Users</span>
+            </div>
 
-     <p style={{
-    textAlign: "center",
-    color: "#666",
-    marginBottom: "30px",
-    }}>
+            <div>
+              <h2>98%</h2>
+              <span>AI Accuracy</span>
+            </div>
+          </div>
+        </div>
 
-  AI Powered Carbon Intelligence Platform
-   </p>
-        <h2>Login</h2>
+        {/* Login Card */}
+        <div className="card">
+          <h1
+            style={{
+              fontSize: "48px",
+              textAlign: "center",
+              color: "#1b5e20",
+              marginBottom: "10px",
+              fontWeight: "800",
+              letterSpacing: "2px",
+            }}
+          >
+            CarbonIQ
+          </h1>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
+          <p
+            style={{
+              textAlign: "center",
+              color: "#666",
+              marginBottom: "30px",
+            }}
+          >
+            AI Powered Carbon Intelligence Platform
+          </p>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
+          <h2>Login</h2>
 
-        <button onClick={handleLogin}>
-          Login
-        </button>
-        <p style={{ marginTop: "15px" }}>
-        Don’t have an account?{" "}
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
 
-       <Link
-       to="/register"
-       style={{
-      color: "#1b5e20",
-      fontWeight: "bold",
-      }}
-       >
-    Register
-  </Link>
-   </p>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+
+          <button onClick={handleLogin}>Login</button>
+
+          <p style={{ marginTop: "15px", textAlign: "center" }}>
+            Don't have an account?{" "}
+            <Link
+              to="/register"
+              style={{
+                color: "#1b5e20",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              Register
+            </Link>
+          </p>
+        </div>
+
       </div>
     </div>
   );
