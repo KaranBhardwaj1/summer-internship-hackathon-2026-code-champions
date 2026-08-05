@@ -37,6 +37,31 @@ function Register() {
 
   return (
     <div className="container">
+      <div className="left-section">
+  <h1>Build a Greener Future 🌿</h1>
+
+  <p>
+    AI-powered carbon intelligence helping businesses measure,
+    analyze, and reduce their environmental impact.
+  </p>
+
+  <div className="stats">
+    <div>
+      <h2>50+</h2>
+      <span>Organizations</span>
+    </div>
+
+    <div>
+      <h2>10K+</h2>
+      <span>Users</span>
+    </div>
+
+    <div>
+      <h2>98%</h2>
+      <span>AI Accuracy</span>
+    </div>
+  </div>
+</div>
       <div className="card">
         <h2>Register</h2>
 
