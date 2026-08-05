@@ -1,14 +1,7 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/auth";
-import {
-  FaLeaf,
-  FaLock,
-  FaEnvelope,
-  FaRobot,
-  FaChartLine,
-  FaGlobe,
-} from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login() {
@@ -30,105 +23,79 @@ function Login() {
     try {
       const data = await loginUser(formData);
 
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem(
+        "token",
+        data.token
+      );
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(data.user)
+      );
 
       navigate("/dashboard");
     } catch (error) {
-      alert(error.response?.data?.message || "Login Failed");
+      alert(
+        error.response?.data?.message ||
+          "Login Failed"
+      );
     }
   };
 
   return (
-    <div className="login-page">
+    <div className="container">
+      <div className="card">
+        <h1 style={{
+    fontSize: "48px",
+    textAlign: "center",
+    color: "#1b5e20",
+    marginBottom: "10px",
+    fontWeight: "800",
+    letterSpacing: "2px",}}>
+    CarbonIQ
+    </h1>
 
-      <div className="blob blob1"></div>
-      <div className="blob blob2"></div>
+     <p style={{
+    textAlign: "center",
+    color: "#666",
+    marginBottom: "30px",
+    }}>
 
-      <div className="left">
+  AI Powered Carbon Intelligence Platform
+   </p>
+        <h2>Login</h2>
 
-        <div className="logo-circle">
-          <FaLeaf />
-        </div>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+        />
 
-        <h1>CarbonIQ</h1>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
 
-        <p className="subtitle">
-          AI Powered Carbon Intelligence Platform
-        </p>
+        <button onClick={handleLogin}>
+          Login
+        </button>
+        <p style={{ marginTop: "15px" }}>
+        Don’t have an account?{" "}
 
-        <div className="feature-card">
-          <FaRobot />
-          <div>
-            <h3>AI Prediction</h3>
-            <p>Forecast carbon emissions using AI.</p>
-          </div>
-        </div>
-
-        <div className="feature-card">
-          <FaChartLine />
-          <div>
-            <h3>Analytics</h3>
-            <p>Visual dashboards & insights.</p>
-          </div>
-        </div>
-
-        <div className="feature-card">
-          <FaGlobe />
-          <div>
-            <h3>Sustainability</h3>
-            <p>Track and reduce your footprint.</p>
-          </div>
-        </div>
-
+       <Link
+       to="/register"
+       style={{
+      color: "#1b5e20",
+      fontWeight: "bold",
+      }}
+       >
+    Register
+  </Link>
+   </p>
       </div>
-
-      <div className="right">
-
-        <div className="login-card">
-
-          <h2>Welcome Back 👋</h2>
-
-          <p>Sign in to continue</p>
-
-          <div className="input-box">
-            <FaEnvelope />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="input-box">
-            <FaLock />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-            />
-          </div>
-
-          <button onClick={handleLogin}>
-            Login
-          </button>
-
-          <div className="register">
-
-            Don't have an account?
-
-            <Link to="/register">
-              Register
-            </Link>
-
-          </div>
-
-        </div>
-
-      </div>
-
     </div>
   );
 }
