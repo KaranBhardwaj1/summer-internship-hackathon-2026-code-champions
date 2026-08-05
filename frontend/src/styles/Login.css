@@ -63,42 +63,38 @@ body{
 }
 
 .card h2{
+    color:#1b5e20;
     text-align:center;
-    color:white;
-    font-size:30px;
     margin-bottom:25px;
+    font-size:34px;
+    font-weight:700;
 }
 
 .card input{
-
     width:100%;
     padding:16px 18px;
     margin:12px 0;
 
-    border:none;
+    border:2px solid #d9e4dd;
     outline:none;
 
     border-radius:12px;
 
-    background:rgba(255,255,255,.15);
+    background:#ffffff;
 
-    color:white;
+    color:#222;          /* Dark text */
     font-size:15px;
 
     transition:.3s;
 }
 
 .card input::placeholder{
-    color:#d8d8d8;
+    color:#777;
 }
 
 .card input:focus{
-
-    background:rgba(255,255,255,.22);
-
-    box-shadow:
-    0 0 0 2px rgba(76,175,80,.5);
-
+    border-color:#22c55e;
+    box-shadow:0 0 10px rgba(34,197,94,.25);
 }
 
 .card button{
@@ -142,7 +138,7 @@ body{
 
 .card a{
 
-    color:#9cffb2 !important;
+    color:#2E7D32 !important;
 
     text-decoration:none;
 
