@@ -5,10 +5,11 @@ import {
   FaLeaf,
   FaLock,
   FaEnvelope,
-  FaChartLine,
   FaRobot,
+  FaChartLine,
   FaGlobe,
 } from "react-icons/fa";
+import "../styles/Login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -39,199 +40,95 @@ function Login() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        background:
-          "linear-gradient(135deg,#0f2027,#203a43,#2c7744)",
-        overflow: "hidden",
-      }}
-    >
-      {/* Left Side */}
-      <div
-        style={{
-          flex: 1,
-          color: "white",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: "70px",
-        }}
-      >
-        <div
-          style={{
-            width: 90,
-            height: 90,
-            borderRadius: "50%",
-            background: "#fff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: "30px",
-          }}
-        >
-          <FaLeaf size={45} color="#2e7d32" />
+    <div className="login-page">
+
+      <div className="blob blob1"></div>
+      <div className="blob blob2"></div>
+
+      <div className="left">
+
+        <div className="logo-circle">
+          <FaLeaf />
         </div>
 
-        <h1
-          style={{
-            fontSize: "60px",
-            marginBottom: 10,
-            fontWeight: "800",
-          }}
-        >
-          CarbonIQ
-        </h1>
+        <h1>CarbonIQ</h1>
 
-        <h2
-          style={{
-            fontWeight: "400",
-            color: "#dcedc8",
-            marginBottom: "40px",
-          }}
-        >
+        <p className="subtitle">
           AI Powered Carbon Intelligence Platform
-        </h2>
+        </p>
 
-        <div style={{ marginTop: 20 }}>
-          <p style={{ fontSize: 20, marginBottom: 20 }}>
-            <FaRobot /> AI Carbon Prediction
-          </p>
-
-          <p style={{ fontSize: 20, marginBottom: 20 }}>
-            <FaChartLine /> Smart Analytics Dashboard
-          </p>
-
-          <p style={{ fontSize: 20 }}>
-            <FaGlobe /> Sustainable Future
-          </p>
+        <div className="feature-card">
+          <FaRobot />
+          <div>
+            <h3>AI Prediction</h3>
+            <p>Forecast carbon emissions using AI.</p>
+          </div>
         </div>
+
+        <div className="feature-card">
+          <FaChartLine />
+          <div>
+            <h3>Analytics</h3>
+            <p>Visual dashboards & insights.</p>
+          </div>
+        </div>
+
+        <div className="feature-card">
+          <FaGlobe />
+          <div>
+            <h3>Sustainability</h3>
+            <p>Track and reduce your footprint.</p>
+          </div>
+        </div>
+
       </div>
 
-      {/* Right Side */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            width: 430,
-            padding: 45,
-            borderRadius: 25,
-            background: "rgba(255,255,255,0.12)",
-            backdropFilter: "blur(18px)",
-            boxShadow: "0 10px 40px rgba(0,0,0,.4)",
-            color: "white",
-          }}
-        >
-          <h2
-            style={{
-              textAlign: "center",
-              marginBottom: 35,
-              fontSize: 34,
-            }}
-          >
-            Welcome Back
-          </h2>
+      <div className="right">
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              background: "rgba(255,255,255,.15)",
-              padding: "14px",
-              borderRadius: 12,
-              marginBottom: 20,
-            }}
-          >
+        <div className="login-card">
+
+          <h2>Welcome Back 👋</h2>
+
+          <p>Sign in to continue</p>
+
+          <div className="input-box">
             <FaEnvelope />
             <input
               type="email"
               name="email"
               placeholder="Email"
               onChange={handleChange}
-              style={{
-                flex: 1,
-                marginLeft: 12,
-                background: "transparent",
-                border: "none",
-                outline: "none",
-                color: "white",
-                fontSize: 16,
-              }}
             />
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              background: "rgba(255,255,255,.15)",
-              padding: "14px",
-              borderRadius: 12,
-              marginBottom: 25,
-            }}
-          >
+          <div className="input-box">
             <FaLock />
-
             <input
               type="password"
               name="password"
               placeholder="Password"
               onChange={handleChange}
-              style={{
-                flex: 1,
-                marginLeft: 12,
-                background: "transparent",
-                border: "none",
-                outline: "none",
-                color: "white",
-                fontSize: 16,
-              }}
             />
           </div>
 
-          <button
-            onClick={handleLogin}
-            style={{
-              width: "100%",
-              padding: 15,
-              borderRadius: 12,
-              border: "none",
-              cursor: "pointer",
-              fontSize: 18,
-              background: "#4caf50",
-              color: "white",
-              fontWeight: "bold",
-            }}
-          >
+          <button onClick={handleLogin}>
             Login
           </button>
 
-          <p
-            style={{
-              textAlign: "center",
-              marginTop: 25,
-            }}
-          >
-            Don't have an account?{" "}
-            <Link
-              to="/register"
-              style={{
-                color: "#9cffb2",
-                fontWeight: "bold",
-              }}
-            >
+          <div className="register">
+
+            Don't have an account?
+
+            <Link to="/register">
               Register
             </Link>
-          </p>
+
+          </div>
+
         </div>
+
       </div>
+
     </div>
   );
 }
