@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://carboniq-0h6t.onrender.com/api",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 export default API;
