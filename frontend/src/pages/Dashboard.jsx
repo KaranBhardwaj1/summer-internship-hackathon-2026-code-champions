@@ -56,7 +56,7 @@ useEffect(() => {
       <div style={{ flex: 1 }}>
         <Navbar />
 
-        <div className="container">
+        <div className="dashboard-container">
           <DashboardCards />
 
           <div
